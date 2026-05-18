@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts without transactions</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Шапка приложения -->
+      <header class="page-header">
+        <div class="container-title">
+          <img class="logo-header" src="/src/assets/logo_sapp.svg" alt="Лого сайта САПП">
+          <h1 class="title-header">Контакты без сделок</h1>
+        </div>
+        <a href="https://sapp24.com/apps/help/" class="button-link" target="_blank" rel="noopener noreferrer">
+          Помощь
+        </a>
+      </header>
+
+      <!-- Статус процесса формирования отчета -->
+      <div class="status-report">
+        Выбрать фильтры
+      </div>
+
+      <!-- Диагностика подключений -->
+      <section class="container-connection-diagnostics">
+        <h2 class="title-diagnostics">Диагностика Bitrix24</h2>
+
+        <dl class="container-list">
+          <div class="container-for-items-list">
+            <dt class="item-list-diagn">Bitrix24 JS SDK</dt>
+            <dd class="desc-item"></dd>
+          </div>
+
+          <div class="container-for-items-list">
+            <dt class="item-list-diagn">Инициализация BX24</dt>
+            <dd class="desc-item"></dd>
+          </div>
+
+          <div class="container-for-items-list">
+            <dt class="item-list-diagn">Домен портала</dt>
+            <dd class="desc-item"></dd>
+          </div>
+
+          <div class="container-for-items-list">
+            <dt class="item-list-diagn">member_id</dt>
+            <dd class="desc-item"></dd>
+          </div>
+
+          <div class="container-for-items-list">
+            <dt class="item-list-diagn">auth</dt>
+            <dd class="desc-item"></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Форма для формирования отчета -->
+      <form class="filter-form">
+        <!-- Дата создания -->
+        <div class="date-filter" data-date-type="created">
+            <label class="title-filters">Дата создания</label>
+            <div class="dropdown date-dropdown">
+              <button type="button" class="dropdown-btn date-dropdown-btn">
+                Любая дата
+              </button>
+              <div class="dropdown-content date-dropdown-content">
+                  <button type="button" class="date-option" data-value="any">Любая дата</button>
+                  <button type="button" class="date-option" data-value="today">Сегодня</button>
+                  <button type="button" class="date-option" data-value="yesterday">Вчера</button>
+                  <button type="button" class="date-option" data-value="this_week">Текущая неделя</button>
+                  <button type="button" class="date-option" data-value="last_week">Прошлая неделя</button>
+                  <button type="button" class="date-option" data-value="this_month">Текущий месяц</button>
+                  <button type="button" class="date-option" data-value="last_month">Прошлый месяц</button>
+                  <button type="button" class="date-option" data-value="exact">Точная дата</button>
+                  <button type="button" class="date-option" data-value="range">Диапазон</button>
+              </div>
+        </div>
+
+            <input type="date" class="exact-date" style="display: none;">
+
+            <div class="range-dates" style="display: none;">
+                <input type="date" class="date-from" placeholder="от">
+                <input type="date" class="date-to" placeholder="до">
+            </div>
+        </div>
+
+        <!-- Дата изменения -->
+        <div class="date-filter" data-date-type="modified">
+            <label class="title-filters">Дата изменения</label>
+            <div class="dropdown date-dropdown">
+              <button type="button" class="dropdown-btn date-dropdown-btn">
+                Любая дата
+              </button>
+              <div class="dropdown-content date-dropdown-content">
+                  <button type="button" class="date-option" data-value="any">Любая дата</button>
+                  <button type="button" class="date-option" data-value="today">Сегодня</button>
+                  <button type="button" class="date-option" data-value="yesterday">Вчера</button>
+                  <button type="button" class="date-option" data-value="this_week">Текущая неделя</button>
+                  <button type="button" class="date-option" data-value="last_week">Прошлая неделя</button>
+                  <button type="button" class="date-option" data-value="this_month">Текущий месяц</button>
+                  <button type="button" class="date-option" data-value="last_month">Прошлый месяц</button>
+                  <button type="button" class="date-option" data-value="exact">Точная дата</button>
+                  <button type="button" class="date-option" data-value="range">Диапазон</button>
+              </div>
+        </div>
+
+            <input type="date" class="exact-date" style="display: none;">
+
+            <div class="range-dates" style="display: none;">
+                <input type="date" class="date-from" placeholder="от">
+                <input type="date" class="date-to" placeholder="до">
+            </div>
+        </div>
+
+        <!-- Ответственный -->
+        <div class="filter-group">
+            <label class="title-filters">Ответственный</label>
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn">Все сотрудники</button>
+                <div class="dropdown-content">
+                    <label class="checkbox-item"><input type="checkbox" value="all" checked> Все сотрудники</label>
+                    <label class="checkbox-item"><input type="checkbox" value="42"> Калинин Олег Борисович</label>
+                    <label class="checkbox-item"><input type="checkbox" value="57"> Ховрин Алексей Семёнович</label>
+                    <label class="checkbox-item"><input type="checkbox" value="7"> Седых Стелла</label>
+                    <label class="checkbox-item"><input type="checkbox" value="89"> Бит Робот Интеграторский общий аккаунт</label>
+                    <button type="button" class="reset-btn">Сбросить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Статус сделок -->
+        <div class="filter-group">
+          <label class="title-filters">Статус сделок</label>
+          <div class="dropdown">
+            <button type="button" class="dropdown-btn">
+              Вообще нет сделок
+            </button>
+            <div class="dropdown-content">
+              <label class="checkbox-item">
+                <input type="checkbox" value="no_deals" checked> Вообще нет сделок
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" value="no_active_deals"> Без активных сделок
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" value="no_successful_deals"> Без закрытых успешных сделок
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" value="no_lost_deals"> Без закрытых проигранных сделок
+              </label>
+
+                <button type="button" class="reset-btn" id="resetStatusBtn">Сбросить</button>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-buttons-report">
+          <button type="button"class="btn-primary">Сформировать отчёт</button>
+          <button type="button" class="btn-secondary">Скачать в Excel</button>
+        </div>
+      </form>
+
+      <!-- Отчет -->
+      <section class="container-for-report">
+        <span class="report-help-text">Место для отчета</span>
+      </section>
+
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

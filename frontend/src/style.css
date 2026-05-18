@@ -1,0 +1,427 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    font-size: 16px;
+
+}
+
+
+#app {
+    max-width: 1200px;
+    margin: 5px;
+    border: 1px solid #dfe4ec;
+    border-radius: 22px;
+}
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 18px;
+    }
+    #app {
+        max-width: 1600px;
+    }
+}
+
+
+/* Шапка приложения */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+
+    padding: 0 30px;
+}
+
+.container-title {
+    display: flex;
+    gap: clamp(8px, 2vw, 24px);
+    align-items: center;
+}
+
+.logo-header {
+    width: clamp(70px, 8vw, 160px);
+    height: auto;
+    display: block; 
+}
+
+.title-header {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: 700;
+    color: #1D2430;
+    line-height: 1.2;
+    transform: translateY(-1px);
+}
+
+.button-link {
+    text-decoration: none;
+    color: #1d2430;
+    border: 1px solid #dfe4ec;
+    border-radius: 24px;
+    min-height: 36px;
+
+    justify-content: center;
+    align-items: center;
+    padding: 0 clamp(12px, 2vw, 28px);  
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 600;
+    display: inline-flex;
+
+    background-color: #ffffff;
+
+    min-height: 36px;          
+    max-height: 36px;  
+}
+
+.button-link:hover {
+    border-color: #b8c2d1;
+}
+
+
+/* Статус отчета */
+.status-report {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ff950092;
+}
+
+
+/* Диагностика битрикс */
+.container-connection-diagnostics {
+    display: grid;
+    padding: 20px 30px;
+
+    gap: 10px;
+    background-color: #f8fafc6a;
+    line-height: 1.2;
+
+    border-bottom: 1px solid #dfe4ec;
+}
+
+.title-diagnostics {
+    color: #1d2430;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+
+    font-weight: 600;
+}
+
+.container-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: 8px 12px;
+}
+
+.container-for-items-list {
+    border: 1px solid #dfe4ec;
+    background: #fff;
+    border-radius: 12px;
+    gap: 3px;
+    min-height: 48px;
+    padding: 9px 11px;
+    display: grid;
+}
+
+.item-list-diagn {
+    color: #687385;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+.desc-item {
+    color: #1d2430;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+
+
+
+/* Форма для заполнения отчета */
+.filter-form {
+    border-bottom: 1px solid #676d78;
+    background: var(--surface);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    align-items: stretch;
+    gap: 14px;
+    padding: 18px clamp(16px, 3vw, 28px);
+    display: grid;
+}
+
+.title-filters {
+    color: #687385;
+    letter-spacing: 0;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 600;
+    line-height: 1.2;
+    display: flex;
+}
+
+/* Группа фильтров */
+.filter-group,
+.date-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group,
+.date-filter {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 500;
+    color: #1d2430;
+}
+
+/* Выпадающие списки (select) */
+.date-select {
+    border: 1px solid #cfd6e2;
+    width: 100%;
+    min-height: 40px;
+    color: var(--foreground);
+    text-align: left;
+    background: linear-gradient(45deg, #0000 50%, #7b8494 50%) calc(100% - 18px) 17px / 5px 5px no-repeat, linear-gradient(135deg, #7b8494 50%, #0000 50%) calc(100% - 13px) 17px / 5px 5px no-repeat, #fff;
+    border-radius: 12px;
+    outline: none;
+    justify-content: flex-start;
+    padding: 0 34px 0 12px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    line-height: 1.2;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select option {
+    color: #1d2430;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 8px;
+}
+
+
+/* Поля ввода (календари) */
+.date-filter input[type="date"] {
+    padding: 8px 12px;
+    border: 1px solid #dfe4ec;
+    border-radius: 16px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    background-color: white;
+}
+
+/* Блок диапазона (два календаря) */
+.range-dates {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.range-dates input {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* Ответсвенный */
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 34px 10px 12px;
+    background: linear-gradient(45deg, #0000 50%, #7b8494 50%) calc(100% - 18px) 17px / 5px 5px no-repeat, linear-gradient(135deg, #7b8494 50%, #0000 50%) calc(100% - 13px) 17px / 5px 5px no-repeat, #fff;
+    background-color: white;
+    border: 1px solid #dfe4ec;
+    border-radius: 16px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: 0.2s;
+
+    color: #1d2430;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #dfe4ec;
+    border-radius: 16px;
+    padding: 12px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+.checkbox-item:last-of-type {
+    margin-bottom: 12px;
+}
+
+/* Кнопка сброса внутри выпадающего списка */
+.reset-btn {
+    background: none;
+    border: none;
+    color: #0066cc;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+/* Статусы сделок */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #dfe4ec;
+    border-radius: 16px;
+    padding: 12px;
+    background-color: white;
+}
+
+.checkbox-group .checkbox-item {
+    margin-bottom: 0;
+}
+
+/* Кнопки формы */
+.form-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.form-buttons button {
+    padding: 10px 24px;
+    border-radius: 32px;
+    border: 1px solid #dfe4ec;
+    background-color: white;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-buttons button:first-child {
+    background-color: #1d2430;
+    color: white;
+    border: none;
+}
+
+.form-buttons button:first-child:hover {
+    background-color: #2c3545;
+}
+
+.form-buttons button:last-child:hover {
+    background-color: #f8fafc;
+    border-color: #b8c2d1;
+}
+
+.date-option {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.date-option:hover {
+    background-color: #f0f2f5;
+}
+
+.dropdown-content {
+    border-radius: 16px; 
+}
+
+/* Кнопки для формирования отчета и скачивания */
+.form-buttons-report {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 25px 0;
+}
+
+.btn-primary {
+    min-width: clamp(160px, 20vw, 260px);
+    height: clamp(36px, 5vh, 48px);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff950092;
+    color: #080404;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+
+    flex: 1;                        
+    white-space: nowrap;
+}
+
+.btn-secondary {
+    min-width: clamp(160px, 20vw, 260px);
+    height: clamp(36px, 5vh, 48px);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #6b9c1c6d;
+    color: #090303;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    flex: 1;                     
+    white-space: nowrap;
+}
+
+
+/* Отчет */
+.container-for-report {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin: 20px 30px;
+    padding: 20px;
+}
+
+.report-help-text {
+    color: #687385;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
